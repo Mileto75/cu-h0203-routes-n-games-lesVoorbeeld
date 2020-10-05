@@ -51,8 +51,9 @@ namespace Wba.Oefening.Games.Web.Controllers
             StringBuilder stringBuilder = 
                 new StringBuilder();
             stringBuilder.AppendLine("<ul>");
-            stringBuilder.AppendLine($"Id:{developer?.Id ?? 0}" +
-                $", Developer:{developer?.Name ?? "NoName"}");
+            stringBuilder.AppendLine($"<li>" +
+                $"<a href='https://localhost:5001/developers/ShowDeveloper/{developer.Id}'>Id:{developer?.Id ?? 0}" +
+                $", Developer:{developer?.Name ?? "NoName"}</a></li>");
             stringBuilder.AppendLine("</ul>");
             return stringBuilder.ToString();
         }

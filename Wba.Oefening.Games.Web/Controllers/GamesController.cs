@@ -58,8 +58,8 @@ namespace Wba.Oefening.Games.Web.Controllers
             //input string opbouwen
             _stringBuilder.AppendLine("<ul>");
             _stringBuilder.AppendLine
-                ($"<li>Title:{game?.Title ?? "NoTitle"}" +
-                $":Developer{game?.Developer?.Name ?? "NoName"}</li>");
+                ($"<li><a href='https://localhost:5001/games/Showgame/{game.Id}'>Title:{game?.Title ?? "NoTitle"}" +
+                $":Developer{game?.Developer?.Name ?? "NoName"}</a></li>");
             _stringBuilder.AppendLine("</ul>");
             return _stringBuilder.ToString();
         }
