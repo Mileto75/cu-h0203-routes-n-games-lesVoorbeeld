@@ -20,9 +20,30 @@ namespace Wba.Oefening.Games.Web.Controllers
                 new DeveloperRepository();
         }
         //action methods
+        [Route("Developers")]
+        [Route("Developers/Index")]
+        [Route("Developers/All")]
         public IActionResult Index()
         {
-            return View();
+            //haal de developers op uit repo
+            var developers = _developerRepository
+                .GetDevelopers();
+            //format output string
+            var content = FormatDevelopersInfo(developers);
+            //output naar browser
+            return Content(content,"text/html");
+        }
+        [Route("Developers/ShowDeveloper/{id}")]
+        public IActionResult ShowDeveloper(int id)
+        {
+            //haal de developer op adhv id
+            var developer = _developerRepository
+                .GetDevelopers()
+                .FirstOrDefault(d => d.Id == id);
+            //format output
+            var content = FormatDeveloperInfo(developer);
+            //output naar browser
+            return Content(content, "text/html");
         }
 
         private string FormatDeveloperInfo(Developer developer)
