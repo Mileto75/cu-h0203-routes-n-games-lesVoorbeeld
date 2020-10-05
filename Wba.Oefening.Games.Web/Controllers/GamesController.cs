@@ -52,28 +52,6 @@ namespace Wba.Oefening.Games.Web.Controllers
 
 
 
-        private string FormatGameInfo(Game game)
-        {
-            StringBuilder _stringBuilder = new StringBuilder();
-            //input string opbouwen
-            _stringBuilder.AppendLine("<ul>");
-            _stringBuilder.AppendLine
-                ($"<li><a href='https://localhost:5001/games/Showgame/{game.Id}'>Title:{game?.Title ?? "NoTitle"}" +
-                $":Developer{game?.Developer?.Name ?? "NoName"}</a></li>");
-            _stringBuilder.AppendLine("</ul>");
-            return _stringBuilder.ToString();
-        }
-
-        private string FormatGamesInfo(IEnumerable<Game> games)
-        {
-            StringBuilder _stringBuilder = new StringBuilder();
-            foreach (var game in games)
-            {
-                _stringBuilder
-                    .AppendLine(FormatGameInfo(game));
-            }
-            return _stringBuilder.ToString();
-
-        }
+        
     }
 }

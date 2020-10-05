@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.29215.179
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wba.Oefening.Games.Domain", "Wba.Oefening.Games.Domain\Wba.Oefening.Games.Domain.csproj", "{0610E501-03D6-4FD5-A6E5-C5D74FD685E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wba.Oefening.Games.Web", "Wba.Oefening.Games.Web\Wba.Oefening.Games.Web.csproj", "{930F03CC-84B7-49C4-9FCC-BF1E45AE0786}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wba.Oefening.Games.Web", "Wba.Oefening.Games.Web\Wba.Oefening.Games.Web.csproj", "{930F03CC-84B7-49C4-9FCC-BF1E45AE0786}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wba.Oefening.Games.Services", "Wba.Oefening.Games.Services\Wba.Oefening.Games.Services.csproj", "{8AACFDE1-19AE-442C-8F6B-D4E590F104C7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{930F03CC-84B7-49C4-9FCC-BF1E45AE0786}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{930F03CC-84B7-49C4-9FCC-BF1E45AE0786}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{930F03CC-84B7-49C4-9FCC-BF1E45AE0786}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AACFDE1-19AE-442C-8F6B-D4E590F104C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AACFDE1-19AE-442C-8F6B-D4E590F104C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AACFDE1-19AE-442C-8F6B-D4E590F104C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AACFDE1-19AE-442C-8F6B-D4E590F104C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -45,33 +45,5 @@ namespace Wba.Oefening.Games.Web.Controllers
             //output naar browser
             return Content(content, "text/html");
         }
-
-        private string FormatDeveloperInfo(Developer developer)
-        {
-            StringBuilder stringBuilder = 
-                new StringBuilder();
-            stringBuilder.AppendLine("<ul>");
-            stringBuilder.AppendLine($"<li>" +
-                $"<a href='https://localhost:5001/developers/ShowDeveloper/{developer.Id}'>Id:{developer?.Id ?? 0}" +
-                $", Developer:{developer?.Name ?? "NoName"}</a></li>");
-            stringBuilder.AppendLine("</ul>");
-            return stringBuilder.ToString();
-        }
-
-        private string FormatDevelopersInfo
-            (IEnumerable<Developer> developers)
-        {
-            StringBuilder stringBuilder 
-                = new StringBuilder();
-            //lus door de developers en 
-            //roep FormatdeveloperInfo aan
-            foreach(var developer in developers)
-            {
-                stringBuilder.AppendLine
-                    (FormatDeveloperInfo(developer));
-            }
-            //return
-            return stringBuilder.ToString();
-        }
     }
 }
