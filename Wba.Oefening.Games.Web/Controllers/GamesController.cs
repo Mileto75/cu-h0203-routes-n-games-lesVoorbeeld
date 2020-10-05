@@ -18,7 +18,9 @@ namespace Wba.Oefening.Games.Web.Controllers
             _gameRepository = new GameRepository();
            // _stringBuilder = new StringBuilder();
         }
+        [Route("games")]
         [Route("games/index")]
+        [Route("games/all")]
         public IActionResult Index()
         {
             //haal de games op
