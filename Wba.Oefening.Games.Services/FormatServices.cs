@@ -5,6 +5,7 @@ using Wba.Oefening.Games.Domain;
 
 namespace Wba.Oefening.Games.Services
 {
+    //zou in principe ook static kunnen en mogen
     public class FormatServices
     {
         //format methods games

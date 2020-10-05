@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Wba.Oefening.Games.Domain;
+using Wba.Oefening.Games.Services;
 
 namespace Wba.Oefening.Games.Web.Controllers
 {
@@ -13,11 +14,15 @@ namespace Wba.Oefening.Games.Web.Controllers
         //declare DeveloperRepository property
         private readonly DeveloperRepository 
             _developerRepository;
+        private readonly 
+            FormatServices _formatServices;
+
         //constructor initialisation
         public DeveloperController()
         {
             _developerRepository =
                 new DeveloperRepository();
+            _formatServices = new FormatServices();
         }
         //action methods
         [Route("Developers")]
@@ -29,7 +34,7 @@ namespace Wba.Oefening.Games.Web.Controllers
             var developers = _developerRepository
                 .GetDevelopers();
             //format output string
-            var content = FormatDevelopersInfo(developers);
+            var content = _formatServices.FormatDevelopersInfo(developers);
             //output naar browser
             return Content(content,"text/html");
         }
@@ -41,7 +46,7 @@ namespace Wba.Oefening.Games.Web.Controllers
                 .GetDevelopers()
                 .FirstOrDefault(d => d.Id == id);
             //format output
-            var content = FormatDeveloperInfo(developer);
+            var content = _formatServices.FormatDeveloperInfo(developer);
             //output naar browser
             return Content(content, "text/html");
         }
