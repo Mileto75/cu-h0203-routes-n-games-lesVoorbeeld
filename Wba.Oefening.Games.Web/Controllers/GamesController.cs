@@ -11,24 +11,28 @@ namespace Wba.Oefening.Games.Web.Controllers
     public class GamesController : Controller
     {
         private readonly GameRepository _gameRepository;
-        private readonly StringBuilder _stringBuilder;
+        //private StringBuilder _stringBuilder;
 
         public GamesController()
         {
             _gameRepository = new GameRepository();
-            _stringBuilder = new StringBuilder();
+           // _stringBuilder = new StringBuilder();
         }
         [Route("games/index")]
         public IActionResult Index()
         {
+            //haal de games op
             var games = _gameRepository.GetGames();
-            foreach(var game in games)
-            {
-                _stringBuilder.AppendLine("<ul>");
-                _stringBuilder.AppendLine($"<li>Game title:{game.Title}</li>");
-                _stringBuilder.AppendLine("</ul>");
-            }
-            return Content(_stringBuilder.ToString(),"text/html");
+            //foreach(var game in games)
+            //{
+            //    _stringBuilder.AppendLine("<ul>");
+            //    _stringBuilder.AppendLine($"<li>Game title:{game.Title}</li>");
+            //    _stringBuilder.AppendLine("</ul>");
+            //}
+            //format output
+            var content = FormatGamesInfo(games);
+            //send to browser
+            return Content(content,"text/html");
         }
         
         [Route("games/showgame/{id}")]
@@ -38,14 +42,36 @@ namespace Wba.Oefening.Games.Web.Controllers
             var game = _gameRepository
                 .GetGames()
                 .FirstOrDefault(g => g.Id == id);
+            //format game output
+            string content = FormatGameInfo(game);
+            //return naar de browser
+            return Content(content, "text/html");
+        }
+
+
+
+        private string FormatGameInfo(Game game)
+        {
+            StringBuilder _stringBuilder = new StringBuilder();
             //input string opbouwen
             _stringBuilder.AppendLine("<ul>");
             _stringBuilder.AppendLine
                 ($"<li>Title:{game?.Title ?? "NoTitle"}" +
                 $":Developer{game?.Developer?.Name ?? "NoName"}</li>");
             _stringBuilder.AppendLine("</ul>");
-            //return naar de browser
-            return Content(_stringBuilder.ToString(), "text/html");
+            return _stringBuilder.ToString();
+        }
+
+        private string FormatGamesInfo(IEnumerable<Game> games)
+        {
+            StringBuilder _stringBuilder = new StringBuilder();
+            foreach (var game in games)
+            {
+                _stringBuilder
+                    .AppendLine(FormatGameInfo(game));
+            }
+            return _stringBuilder.ToString();
+
         }
     }
 }
